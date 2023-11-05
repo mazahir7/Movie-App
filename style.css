@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Rubik:wght@400;500;700;800;900&display=swap');
+
+
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+}
+
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* changes the 1REM from 16px to 10px */
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--secondary-color);
+}
+
+header .search {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1.6rem;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+header .search::placeholder {
+  color: #7378c5;
+}
+
+
+header .search:focus,
+header .search:focus-visible {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+}
+
+.movie-card {
+  flex-grow: 1;
+  width: 300px;
+  margin: 1.6rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.movie-card img {
+  width: 100%;
+}
+
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5px 16px 16px;
+  letter-spacing: .5px;
+}
+
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 3px 5px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.movie-info h3 {
+  font-size: 1.6rem;
+}
+
+.movie-info span.green {
+  color: lightgreen;
+
+  animation: glow .6s alternate infinite;
+}
+
+@keyframes glow {
+
+  0% {
+    filter: drop-shadow(0 0 0 lightgreen);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 5px lightgreen);
+  }
+}
+
+.movie-info span.orange {
+  color: orange;
+}
+
+.movie-info span.red {
+  color: red;
+}
+
+.overview {
+  background-color: #fff;
+  padding: 1.5rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
+  transform: translateY(102%);
+  transition: .3s ease-in;
+}
+
+.overview h3 {
+  font-size: 1.6rem;
+}
+
+.overview p {
+  font-size: 1.4rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.movie-card:hover .overview {
+  transform: translateY(0);
+}
